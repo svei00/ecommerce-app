@@ -1,0 +1,12 @@
+01. Copy the dependencies you need or install one by one.
+02. Get into the folder express has been created.
+03. Run command: npm i --legacy-peer-deps // To ensuere we're installing the right dependencies and libraries.
+04. Install Sanity
+   npm i -g @sanity/cli
+   sanity init
+   // double check: npx -y @sanity/cli init --template get-started --project wz81k4et --dataset production --provider github
+05. After installin when asking for name put sanity-name.
+06. Said yes when asking about default dataset and put the same name of the app.
+07. Create another pat with the same number
+08. Select clean dataset.
+09. After installing sanity we can go to .gitignore file and take of the slash on: node_modules
