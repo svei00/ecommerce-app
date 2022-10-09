@@ -10,3 +10,17 @@
 07. Create another pat with the same number
 08. Select clean dataset.
 09. After installing sanity we can go to .gitignore file and take of the slash on: node_modules
+10. In the index.js file if we see a red highlated import, just configure the .babelrc file with "preset:" ["next/babel"]
+    then go to eslintrc.json and add next/babel: "extends": "[next/babel, next/core-web-vitals]"
+11. To open the sanity manager to configure Saniny and fetch the data use command sanity manage
+    a. Get the Project ID from project ID in Sanity manage.
+    b. Get the name of Dataset by clicking the dataset.
+    c. apiVersion use the date when you build the api
+    d. We get the token from API/Tokens then add API token. We're going to select Editor (in order to edit) and don't forget to select the name.
+    e. For security reason we don't paste the token into the file instead we:
+    f. Create into the root of the project a .end file.
+    g. Into the file we put: NEXT_PUBLIC_SANITY_TOKEN= and paste the token.
+    h. Coming back into the clent file we write: token: process.env.NEXT_PUBLIC_SANITY_TOKEN
+12. JSX files error:
+    a. Go to .babelrc file and write:
+    b. npm install --save-dev --legacy-peer-deps  @babel/preset-react
