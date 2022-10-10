@@ -15,11 +15,12 @@ const Home = ( { products, bannerData } ) => {
 
       <div className='products-container'>
         {
-          products?.map((product) => product.name)  // The question mark is to ensure we have data
-        }
+          products?.map((product) => <Product   // The question mark is to ensure we have data
+          key={product._id} product={product} />
+        )}
       </div>
       
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
   );
 }
