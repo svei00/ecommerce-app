@@ -10,7 +10,8 @@ const ProductDetails = ( product, products) => {
       <div className='product-detail-container'>
         <div>
           <div className='image-container'>
-            <img src={urlFor (image && image[0])} />
+            {console.log()}
+            <img src={urlFor(image && image[0])} />
           </div>
         </div>
       </div>
@@ -50,7 +51,7 @@ export const getStaticProps = async ({ params: { slug }}) => {
   console.log(product);
 
   return {
-    props: { products, product }
+    props: { product, products }
   }
 }
 
