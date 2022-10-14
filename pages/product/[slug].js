@@ -1,5 +1,5 @@
-import React from 'react'
-import { client, urlFor } from '../../lib/client'
+import React from 'react';
+import { client, urlFor } from '../../lib/client';
 
 const ProductDetails = ( product, products) => {
 
@@ -10,8 +10,16 @@ const ProductDetails = ( product, products) => {
       <div className='product-detail-container'>
         <div>
           <div className='image-container'>
-            {console.log()}
             <img src={urlFor(image && image[0])} />
+          </div>
+          <div className='small-images-container'>
+            {image?.map((item, i) => (
+              <img
+                src={urlFor(item)}
+                className=''
+                onMouseEnter=''
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -20,12 +28,11 @@ const ProductDetails = ( product, products) => {
 }
 
 export const getStaticPaths = async () => {
-  const query = `*[_type == "product"] {
+  const query = `*[_type == 'product'] {
     slug {
       current
     }
-  }
-  `;
+  }`;
 
   const products = await client.fetch(query);
 
@@ -42,13 +49,13 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params: { slug }}) => {
-  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-  const productsQuery = '*[_type == "product"]'
-  
+  const query = `*[_type == 'product' && slug.current == '${slug}'][0]`;
   const product = await client.fetch(query);
+  
+  const productsQuery = '*[_type == "product"]'
   const products = await client.fetch(productsQuery);
 
-  console.log(product);
+  console.log(client.builder);
 
   return {
     props: { product, products }
